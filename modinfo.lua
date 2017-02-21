@@ -1,14 +1,12 @@
 return {
-  name='Scened EVO',
-  description='Scened for Evolution RTS',
-  shortname='SE_EVO',
-  version='git',
+  name='SpringBoard EVO',
+  description='SpringBoard for Evolution RTS',
+  shortname='SB_EVO',
+  version='$VERSEION',
   mutator='Official',
-  game='Scened EVO',
-  shortGame='SE_EVO',
   modtype=1,
   depend = {
-	'Scened Core git',
-	'Evolution RTS - v9.01'
+	'rapid://ba:stable',
+	'rapid://sbc:stable'
   },
 }
