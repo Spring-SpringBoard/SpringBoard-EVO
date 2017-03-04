@@ -26,7 +26,8 @@ include("callins.lua")
 include("savetable.lua")
 
 
-Spring.Echo("SB WIDGETS")
+Spring.Echo("Using SpringBoard EVO widget handler override.")
+
 local gl = gl
 
 local modShortUpper = Game.modShortName:upper()
@@ -350,9 +351,8 @@ function widgetHandler:Initialize()
 
   -- stuff the raw widgets into unsortedWidgets
   local widgetFiles = VFS.DirList(WIDGET_DIRNAME, "*.lua", VFS.RAW_ONLY)
-  for k, wf in pairs(VFS.DirList(SB_WIDGET_DIRNAME, "*.lua", VFS.RAW_ONLY)) do
-      Spring.Echo(k, wf)
-      widgetFiles[k] = wf
+  for _, wf in pairs(VFS.DirList(SB_WIDGET_DIRNAME, "*.lua", VFS.RAW_ONLY)) do
+      table.insert(widgetFiles, wf)
   end
   for k,wf in ipairs(widgetFiles) do
     GetWidgetInfo(wf, VFS.RAW_ONLY)
@@ -364,9 +364,8 @@ function widgetHandler:Initialize()
 
   -- stuff the zip widgets into unsortedWidgets
   local widgetFiles = VFS.DirList(WIDGET_DIRNAME, "*.lua", VFS.ZIP_ONLY)
-  for k, wf in pairs(VFS.DirList(SB_WIDGET_DIRNAME, "*.lua", VFS.ZIP_ONLY)) do
-      Spring.Echo(k, wf)
-      widgetFiles[k] = wf
+  for _, wf in pairs(VFS.DirList(SB_WIDGET_DIRNAME, "*.lua", VFS.ZIP_ONLY)) do
+      table.insert(widgetFiles, wf)
   end
   for k,wf in ipairs(widgetFiles) do
     GetWidgetInfo(wf, VFS.ZIP_ONLY)
