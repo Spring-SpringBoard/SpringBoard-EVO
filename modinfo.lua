@@ -1,12 +1,15 @@
 return {
-  name='SpringBoard EVO',
-  description='SpringBoard for Evolution RTS',
-  shortname='SB_EVO',
-  version='$VERSEION',
-  mutator='Official',
-  modtype=1,
+  name = 'SpringBoard EVO',
+  shortName = 'SB_EVO',
+  game = 'SpringBoard EVO',
+  shortGame = 'SB_EVO',
+  description = 'SpringBoard for Evolution RTS',
+  version = '$VERSION',
+  mutator = 'Official',
+  modtype = 1,
   depend = {
-	'rapid://ba:stable',
-	'rapid://sbc:stable'
+	'rapid://evo:stable',
+	'rapid://sbc:test'
+--	'SpringBoard Core $VERSION'
   },
 }
