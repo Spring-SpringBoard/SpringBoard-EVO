@@ -1337,7 +1337,7 @@ There are various options available in the lobby bsettings (use ]] .. yellow .. 
 
   	PopMatrix()
 	end
-	
+
 
 	function drawScoreboard()
   	PushMatrix()
@@ -1436,8 +1436,15 @@ There are various options available in the lobby bsettings (use ]] .. yellow .. 
 		PopMatrix()
 	end
 
-	function gadget:DrawScreen(vsx, vsy)
+	local function IsDevMode()
+		local sb_gameMode = Spring.GetGameRulesParam("sb_gameMode")
+		return sb_gameMode == "dev"
+	end
 
+	function gadget:DrawScreen(vsx, vsy)
+		if IsDevMode() then
+			return
+		end
 	  viewResize()
 
 	  if showGameModeInfo then
@@ -1522,7 +1529,9 @@ There are various options available in the lobby bsettings (use ]] .. yellow .. 
 	end
 
 	function mouseEvent(x, y, button, release)
-
+		if IsDevMode() then
+			return
+		end
 	if Spring.IsGUIHidden() then return false end
 	  if release and draggingScoreboard ~= nil then
 	  	draggingScoreboard = nil
