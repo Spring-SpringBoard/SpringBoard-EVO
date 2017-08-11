@@ -249,7 +249,6 @@ local function RemoveAllianceUnit(u, ud, teamID)
 	if UnitDefs[ud].customParams.commtype then
 		commsAlive[allianceID][u] = nil
 	end
-	Spring.Echo("IsPlayMode()", IsPlayMode())
 	if ((CountAllianceUnits(allianceID) <= 0) or (commends and HasNoComms(allianceID))) and (allianceID ~= chickenAllyTeamID) and IsPlayMode() then
 		Spring.Log(gadget:GetInfo().name, LOG.INFO, "<Game Over> Purging allyTeam " .. allianceID)
 		DestroyAlliance(allianceID)
