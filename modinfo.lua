@@ -8,8 +8,11 @@ return {
   mutator = 'Official',
   modtype = 1,
   depend = {
+     -- Order matters. Putting game second ensures its widget/gadget handler is loaded
+
+	'rapid://sbc:test',
+--	'SpringBoard Core $VERSION',
+
 	'rapid://evo:stable',
-	'rapid://sbc:test'
---	'SpringBoard Core $VERSION'
   },
 }
